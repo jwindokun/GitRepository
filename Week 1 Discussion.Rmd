@@ -1,0 +1,82 @@
+---
+title: "Week 1 Discussion"
+author: "Adejare Windokun"
+date: "June 12, 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Scenario Design Analysis - OkCupid.com
+##Introduction:
+
+OkCupid.com is one of the largest online dating website in the world, and was created in 2004 by Harvard Math Majors, and was one of the first websites to use computational math.
+As an online dating website, the basic premise is to use mathematical algorithms to match people who would be compatible in a relationship and therefore, the algorithm suggests (recommends) such people as people with which the users should go on a date.
+
+
+## Target Users
+OkCupid targets as users, people of both sexes and of any sexual orientation. As compared to other dating websites, JDate.com for example which targets Jewish people or Match.com, which targets the older generation, or other websites, which primarily target short-term relationships, OkCupid, is much more open and non-selective in its clientele of users, although the targeted age group is between 25 to 44 years.
+OkCupid subscription is $9.99 per month, although there is a free service, which however is severely limited.
+
+## What are the key goals?
+For the user, the goal is mainly to meet similar minded people (OkCupid states that it's algorithm ensures this), first online and then in person (go on a date) and then have this develop into a relationship. As a secondary goal though, OkCupid promises that users will meet others of a similar background potentially as friends if a romantic relationship does not develop
+
+## Target Users - Analysis from OkCupid's Stand Point
+OkCupid is a business venture and their primary focus is therefore on profit (as compared to the other free online websites such as Plenty of Fish (POF.com), and therefore they are focused on users that can afford the $9.99 fee. They do not discriminate in terms of sexual orientation (Match.com for example only caters to heterosexual couples) and are quite willing to take anyone provided they can afford the subscription fee.
+
+## What are the key goals? - Analysis from the OkCupid's Stand Point
+OkCupid however, has to ensure that its users are satisfied with the matches it provides, and even though it does not guarantee a suitable match, it has to ensure that its algorithm does ensure that its users feel that it provides a valuable service to them; otherwise, its users will default to another service.
+OkCupid also needs to consider that it cannot have an algorithm that is too efficient, as this would be in direct opposition to its business goals. Once people are matched and start a relationship, they suspend their OkCupid account, and hence OkCupid loses the monthly subscription from them, OkCupid therefore has to consider this too.
+
+## Reverse Engineering
+Online dating sites are notorious for not making the algorithms that they use open of observation, however as compared to other sites, OkCupid is quite open on how their algorithm works. In addition, in fact, these hackers have been able to hack into the algorithm (see Wired article in references). Concisely, the algorithm that OkCupid uses works as follows (okcupid.com):
+
+1.	Obtains input data from users (consisting of up to 100 questions)
++	What you think
++	What you want your partner to think
++	How important it is to you (rating of answer)
+*	Ratings based on:
+    +	Irrelevant = 0
+    +	A little Important = 1
+    +	Somewhat Important = 10
+    + Very Important = 50
+    +	Mandatory = 250
+2.	Matches based on   
+    a. Comparisons (collaborative)      
+    b. Content of the answers (what do you want in an ideal date?)  
+    c. Weighing the different questions - this is secret, but some questions are weighed more heavily than others
+    d. Take n root of the multiplication of satisfactory score (with n as number of questions)
+
+3. For any individual user, recommend the top most matches based on the results of the computation. 
+
+4. Individual users are then free to communicate online and offline (physical date) if they wish to. 
+
+5. If the users click (ie develop a relationship), one can assume that they suspend their OkCupid account, and OkCupid loses a subscription, if they do not, they more on to the next recommendation (or browse and select someone that they think they might connect to).  
+
+## Recommendations on how to improve the recommendation algorithm that OkCupid uses
+Finkel et. al., (2012) states that:    
+*Regarding matching, no compelling evidence supports matching sites' claims that mathematical algorithms work-that they foster romantic outcomes that are superior to those fostered by other means of pairing partners. Part of the problem is that matching sites build their mathematical algorithms around principles-typically similarity but also complementarity-that are much less important to relationship well-being than has long been assumed. In addition, these sites are in a poor position to know how the two partners will grow and mature over time, what life circumstances they will confront and coping responses they will exhibit in the future, and how the dynamics of their interaction will ultimately promote or undermine romantic attraction and long-term relationship well-being. As such, it is unlikely that any matching algorithm that seeks to match two people based on information available before they are aware of each other can account for more than a very small proportion of the variance in long-term romantic outcomes, such as relationship satisfaction and stability.*
+
+OkCupid's present matchmaking algorithm is built around the principle of similarity, assumes that users answer the questions truthfully, that uses likes and dislikes are stationary and are not context based, more importantly they do not have any feedback mechanism in place to see how their algorithm is performing.  
+
+One of the easiest ways to obtain feedback would be to have users rate their dates on the same questionnaire after the date, this would provide a more objective user profile, as compared to user submitted answers
+Users could also be asked to provide an insight why a date or a match suggested by the algorithm did not succeed, this would allow for tuning of the algorithm.  
+
+Finally, other user attributes could also be used in the algorithm sourced from publicly available data, or data collected from the website, for example, how long the user spends on the OkCupid website, what type of profiles they look at, how long does it take them to reply to a message, the content and sentiment of the message.  
+
+Using a Neural Network (unsupervised learning) and feeding it the matches and outcomes of the dates might also reveal interesting findings and correlations that the present algorithm does not take into account.
+Finally a much more scientific approach to outcome measures should be entertained to quantify how much these algorithms actually contribute to a successful match.
+
+
+## References:  
+http://www.evanmarckatz.com/blog/online-dating-tips-advice/whats-wrong-with-the-okcupid-algorithm-for-matching-people/  
+http://daily.jstor.org/dont-fall-in-love-okcupid/  
+http://www.wired.com/2014/01/how-to-hack-okcupid/  
+http://dating-websites.findthedata.com/l/4/OkCupid  
+Finkel, E. J., Eastwick, P. W., Karney, B. R., Reis, H. T., & Sprecher, S. (2012). Online Dating A Critical Analysis From the Perspective of Psychological Science. Psychological Science in the Public Interest, 13(1), 3-66. http://doi.org/10.1177/1529100612436522
+
+
+
+
